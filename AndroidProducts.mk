@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/n8010.mk
+    $(LOCAL_DIR)/n8013.mk
