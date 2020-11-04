@@ -27,4 +27,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=p4notewifiue \
 	TARGET_DEVICE=p4notewifi \
 	BUILD_FINGERPRINT="LineageOS/Samsung/${PRODUCT_MODEL}/${PRODUCT_DEVICE}/${PLATFORM_VERSION}/${BUILD_ID}/userdebug/test-keys" \
-	PRIVATE_BUILD_DESC="n8013-userdebug 9.0 NJH47F cd81f4c40e test-keys"
+	PRIVATE_BUILD_DESC="n8013-userdebug 9.0 PQ3A.190801.002 cd81f4c40e test-keys"
