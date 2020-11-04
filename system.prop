@@ -1,5 +1,5 @@
 #
-# system.prop for n801x
+# system.prop for n8013
 #
 config.disable_atlas=true
 dalvik.vm.dexopt-data-only=1
