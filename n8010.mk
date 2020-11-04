@@ -16,12 +16,12 @@
 
 $(call inherit-product, device/samsung/n80xx-common/n80xx-common.mk)
 
-LOCAL_PATH := device/samsung/n8010
+LOCAL_PATH := device/samsung/n8013
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Rootdir
 PRODUCT_COPY_FILES += \
-    device/samsung/n8010/rootdir/init.target.rc:root/init.target.rc
+    device/samsung/n8013/rootdir/init.target.rc:root/init.target.rc
 
-$(call inherit-product-if-exists, vendor/samsung/n8010/n8010-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/n8013/n8013-vendor.mk)
