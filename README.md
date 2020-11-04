@@ -1,8 +1,8 @@
 Device configuration for the Samsung Galaxy Note 10.1 (Wifi)
 
-p4notewifi a.k.a GT-N8010/GT-N8013
+p4notewifi a.k.a GT-N8013
 
-Copyright (C) 2012 The CyanogenMod Project
+Copyright (C) 2018 The LineageOS Project
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
