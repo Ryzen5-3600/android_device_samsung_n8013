@@ -26,7 +26,7 @@ WITHOUT_RIL := true
 
 # Selinux
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/n8013/selinux
+    device/samsung/n8000/selinux
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := c0,p4notewifi,p4notewifiww,n8013,GT-N8013
