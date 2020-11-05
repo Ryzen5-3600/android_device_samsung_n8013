@@ -15,5 +15,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/n8013.mk
-    $(LOCAL_DIR)/lineage_n8013.mk
+    $(LOCAL_DIR)/n8013.mk \
+    $(LOCAL_DIR)/lineage_n8013.mk \
