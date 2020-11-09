@@ -29,3 +29,5 @@ $(call inherit-product-if-exists, vendor/samsung/n8013/n8013-vendor.mk)
 
 # Vendor properties
 -include $(LOCAL_PATH)/vendor_prop.mk
+
+USE_XML_AUDIO_POLICY_CONF := 1
