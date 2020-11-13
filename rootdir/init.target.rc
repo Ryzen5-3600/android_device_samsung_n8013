@@ -1,4 +1,3 @@
-import /init.target.usb.rc
 on init
 
     # cpu freq
@@ -41,10 +40,6 @@ on init
 
 on post-fs-data
 
-    # serial keyboard port
-	chown root system /dev/ttySAC2
-	chmod 0660 /dev/ttySAC2
-
     # icd
     exec icd_check
     chown system system /dev/icd
@@ -61,50 +56,22 @@ on post-fs-data
     # make param block device link for SysScope
     symlink /dev/block/mmcblk0p4 /dev/block/param
 
-    # GPS init
-    mkdir /data/gps
-    chown gps system /data/gps
-    chmod 1770 /data/gps
-    write /sys/class/sec/gps/GPS_PWR_EN/export 162
-    write /sys/class/sec/gps/GPS_PWR_EN/value 0
-    write /sys/class/sec/gps/GPS_PWR_EN/direction out
-    chown gps system /sys/class/sec/gps/GPS_PWR_EN/value
-    chmod 0664 /sys/class/sec/gps/GPS_PWR_EN/value
-    chown gps system /dev/ttySAC1
-    chmod 0660 /dev/ttySAC1
-    restorecon /sys/class/sec/gps/export
-    restorecon /sys/class/sec/gps/GPS_PWR_EN/value
-    restorecon /sys/class/sec/gps/GPS_PWR_EN/direction
-
-# Restorecon
+    # Restorecon
     restorecon_recursive /efs
+
     write /data/.cid.info 0
     restorecon /data/.cid.info
     restorecon /data/ISP_CV
-    restorecon_recursive /efs/wifi
-
-on property:init.svc.macloader=stopped
-    chown system root /data/.cid.info
-    chmod 0666 /data/.cid.info
-    chown system root /data/.rev
-    chmod 0666 /data/.rev
 
 on boot
     setprop ro.radio.noril yes
 
-# serial keyboard daemon
-service sec_keyboard /system/bin/sec_keyboard /dev/ttySAC2
-	class core
-	group system
-	seclabel u:r:sec_keyboard:s0
-
-# Start GPS daemon
-service gps-daemon /system/bin/sh /system/vendor/bin/gps_daemon.sh
+# GPS
+service gpsd /system/bin/gpsd -c /system/etc/gps.xml
     class main
     socket gps seqpacket 0660 gps system
     user gps
-    group system inet sdcard_rw gps
-    seclabel u:r:glgps:s0
+    group system inet sdcard_rw
 
 # TVout
 #service TvoutService_C /system/bin/bintvoutservice

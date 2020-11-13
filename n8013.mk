@@ -14,12 +14,14 @@
 # limitations under the License.
 #
 
-# Include n80xx BoardConfigCommon
--include device/samsung/n80xx-common/BoardConfigCommon.mk
+$(call inherit-product, device/samsung/n80xx-common/n80xx-common.mk)
 
-# Inline kernel building
-TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
-TARGET_KERNEL_CONFIG := lineageos_n8013_defconfig
+LOCAL_PATH := device/samsung/n8013
 
-# assert
-TARGET_OTA_ASSERT_DEVICE := c0,p4notewifi,p4notewifiww,n8013,GT-N8013
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
+# Rootdir
+PRODUCT_COPY_FILES += \
+    device/samsung/n8013/rootdir/init.target.rc:root/init.target.rc
+
+$(call inherit-product-if-exists, vendor/samsung/n8013/n8013-vendor.mk)
